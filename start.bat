@@ -32,3 +32,5 @@ pause
 
 :end_script
 exit /b %exit_code%
+
+:: auto-deploy pipeline verified 2026-07-27
