@@ -1,0 +1,20 @@
+45: async def send_v2(ctx, embed: discord.Embed, view: discord.ui.View = None, **kwargs):
+61: msg: discord.Message, embed: discord.Embed, view: discord.ui.View = None, **kwargs
+80: embed: discord.Embed,
+91: embed: discord.Embed,
+1380: async def send_v2(ctx, embed: discord.Embed, view: discord.ui.View = None, **kwargs):
+1395: msg: discord.Message, embed: discord.Embed, view: discord.ui.View = None, **kwargs
+4034: def _embed(self) -> discord.Embed:
+4042: return discord.Embed(title="Color Duel", description=description, color=0x5865F2)
+4056: return discord.Embed(title="Color Duel", description=description, color=0x5865F2)
+4985: embed = discord.Embed(
+5704: discord.Embed(
+5730: embed = discord.Embed(
+5795: discord.Embed(
+5812: embed = discord.Embed(
+5819: embed = discord.Embed(
+5908: discord.Embed(
+5943: embed = discord.Embed(title="🎲 Dice Roll", color=color)
+6037: discord.Embed(
+6066: embed = discord.Embed(title="🎡 Roulette", color=color)
+6235: return discord.Embed(

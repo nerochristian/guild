@@ -1,0 +1,47 @@
+name: Deploy to DigitalOcean Droplet
+
+on:
+  push:
+    branches:
+      - guild
+  workflow_dispatch:
+
+concurrency:
+  group: production-deploy
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    timeout-minutes: 15
+    env:
+      DROPLET_HOST: ${{ secrets.DROPLET_HOST }}
+      DROPLET_USER: ${{ secrets.DROPLET_USER }}
+      DROPLET_SSH_KEY: ${{ secrets.DROPLET_SSH_KEY }}
+      DROPLET_KNOWN_HOSTS: ${{ secrets.DROPLET_KNOWN_HOSTS }}
+    steps:
+      - name: Deployment is not configured
+        if: ${{ env.DROPLET_HOST == '' || env.DROPLET_USER == '' || env.DROPLET_SSH_KEY == '' || env.DROPLET_KNOWN_HOSTS == '' }}
+        run: echo "Skipping deployment until all production environment secrets are configured."
+
+      - name: Configure SSH
+        if: ${{ env.DROPLET_HOST != '' && env.DROPLET_USER != '' && env.DROPLET_SSH_KEY != '' && env.DROPLET_KNOWN_HOSTS != '' }}
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$DROPLET_SSH_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          printf '%s\n' "$DROPLET_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
+
+      - name: Deploy
+        if: ${{ env.DROPLET_HOST != '' && env.DROPLET_USER != '' && env.DROPLET_SSH_KEY != '' && env.DROPLET_KNOWN_HOSTS != '' }}
+        run: |
+          ssh \
+            -o BatchMode=yes \
+            -o IdentitiesOnly=yes \
+            "$DROPLET_USER@$DROPLET_HOST" \
+            /opt/soul/guild/scripts/deploy.sh

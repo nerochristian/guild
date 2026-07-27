@@ -1,0 +1,80 @@
+from __future__ import annotations
+
+from party_game_content import PARTY_GAME_CONTENT
+
+
+def _build_eightball() -> list[str]:
+    return [
+        "Absolutely.",
+        "Without a doubt.",
+        "Yes, and sooner than you expect.",
+        "The odds are strongly in your favor.",
+        "Everything points to yes.",
+        "You can count on it.",
+        "It is looking very likely.",
+        "The universe says yes.",
+        "Trust your instincts on this one.",
+        "Go for it.",
+        "A surprisingly good outcome is ahead.",
+        "Yes, but confidence will matter.",
+        "The signs could not be clearer: yes.",
+        "This is your green light.",
+        "Luck is on your side.",
+        "The answer is unclear right now.",
+        "Ask again after you have more information.",
+        "It could go either way.",
+        "The future is still deciding.",
+        "Not enough evidence. Try again later.",
+        "Your timing matters more than the answer.",
+        "Maybe, but do not force it.",
+        "The signs are mixed.",
+        "Ask someone who actually knows what is happening.",
+        "The 8-ball is buffering. Try again.",
+        "There is potential, but no guarantee.",
+        "Wait a little longer before deciding.",
+        "You already know the answer deep down.",
+        "That depends entirely on what you do next.",
+        "I refuse to answer without snacks.",
+        "Definitely not.",
+        "The odds are not in your favor.",
+        "Do not count on it.",
+        "That would be a terrible idea.",
+        "The answer is no, respectfully.",
+        "All signs point to no.",
+        "Not this time.",
+        "Save yourself the embarrassment.",
+        "The universe just closed that door.",
+        "No, and you should probably be relieved.",
+        "That plan has chaos written all over it.",
+        "Your future self wants you to reconsider.",
+        "The answer is no unless something changes.",
+        "Walk away while you still can.",
+        "Even the 8-ball thinks that is suspicious.",
+    ]
+
+
+FUN_CONTENT = {
+    **PARTY_GAME_CONTENT,
+    "eightball": _build_eightball(),
+    "advice": [
+        "Trust the process, but read the instructions first.",
+        "A small plan is better than a perfect plan you never start.",
+        "Drink water, reply later, and avoid making decisions while tired.",
+        "Being honest is easier when you do it early.",
+        "Do not confuse being busy with making progress.",
+    ],
+    "dadjokes": [
+        "I only know 25 letters of the alphabet. I do not know y.",
+        "I told my computer I needed a break, and it said no problem: it would go to sleep.",
+        "Why did the scarecrow win an award? Because it was outstanding in its field.",
+        "I used to hate facial hair, but then it grew on me.",
+        "What do you call fake spaghetti? An impasta.",
+    ],
+    "horoscopes": [
+        "Today favors a bold message, a good snack, and checking your notifications twice.",
+        "A minor inconvenience will become a story worth telling later.",
+        "Your patience will be tested by someone who says they are almost ready.",
+        "You will find unexpected luck after you stop overthinking it.",
+        "Protect your peace, but keep your group-chat notifications on.",
+    ],
+}

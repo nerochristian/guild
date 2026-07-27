@@ -1,0 +1,31 @@
+[Unit]
+Description=Soul Discord bot and website
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=soul
+Group=soul
+WorkingDirectory=/opt/soul/guild
+EnvironmentFile=/opt/soul/guild/.env
+Environment=PYTHONUNBUFFERED=1
+Environment=PORT=8080
+ExecStart=/opt/soul/guild/.venv/bin/python /opt/soul/guild/bot.py
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=30
+CPUWeight=10000
+IOWeight=10000
+Nice=-10
+OOMScoreAdjust=-500
+MemoryLow=512M
+TasksMax=infinity
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=true
+ReadWritePaths=/opt/soul/guild
+
+[Install]
+WantedBy=multi-user.target

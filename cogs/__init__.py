@@ -1,0 +1,1 @@
+"""ModBot cogs package."""

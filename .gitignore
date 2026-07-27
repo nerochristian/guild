@@ -1,0 +1,45 @@
+# ---- secrets (NEVER commit; live only on the VPS) ----
+.env
+.env.*
+credentials.json
+*.db
+*.db-shm
+*.db-wal
+agent.md
+askpass.bat
+deploy.py
+
+# ---- runtime / regenerable ----
+data/
+db/
+backups/
+__pycache__/
+*.pyc
+python-embed/
+python-embed.zip
+node_modules/
+.modbot.lock
+LifeSimBot/
+scratch/
+
+# ---- binary assets & media (kept on the VPS; keep this repo lean code) ----
+assets/
+icons/
+icon pack/
+image.png
+welcome_bg.png
+*.png
+*.gif
+*.jpg
+*.jpeg
+*.webp
+*.bmp
+*.mp4
+*.webm
+*.mov
+*.mp3
+*.wav
+*.ttf
+*.otf
+*.woff
+*.woff2
